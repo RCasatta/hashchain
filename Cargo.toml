@@ -1,0 +1,8 @@
+[package]
+name = "hashchain"
+version = "0.1.0"
+authors = ["Riccardo Casatta <riccardo@casatta.it>"]
+
+[dependencies]
+rust-crypto = "0.2.36"
+rand = "0.3.17"
