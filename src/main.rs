@@ -7,23 +7,26 @@ use crypto::sha2::Sha256;
 use rand::{thread_rng, Rng};
 use std::fmt;
 use std::time::Instant;
+use std::env;
 
-const STEP : u64 = 10_000_000;
+const DEFAULT_STEP : u64 = 1_000_000;
 
 fn main() {
-
-    let mut sha = Sha256::new();
-
+    let step = match env::args().nth(1) {
+        Some(o) => o.parse::<u64>().unwrap_or(10u64) * DEFAULT_STEP ,
+        None => DEFAULT_STEP,
+    };
+    println!("Printing every {}", step);
     let mut i : u64 = 0;
     let mut v = [0u8; 32];
     thread_rng().fill_bytes(&mut v);
-
     let start = Instant::now();
+    let mut sha = Sha256::new();
     loop {
-        if i%STEP == 0 {
+        if i%step == 0 {
             let n = (i / 1_000_000) as f64;
             let d = Instant::now().duration_since(start).as_secs() as f64;
-            println!("{} {} {:6.3} Mhash/s",i, HexSlice::new(&v), n / d );
+            println!("{} {} {:6.3} Mhash/s",i ,HexSlice::new(&v), n / d );
         }
         sha.input(&v);
         sha.result(&mut v);
