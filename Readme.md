@@ -37,7 +37,7 @@ $ nice -10 ./target/release/hashchain 1000 >chainXXX &
 
 ## Now what?
 
-Use [timelock](https://github.com/petertodd/timelock) from Todd/Taki to create a timelock by manually change the config file:
+Use [timelock](https://github.com/petertodd/timelock) from Todd/Taaki to create a timelock by manually change the config file:
 
 * Use the second element (eg. `ca8884437d8e80a4408ae87ec0a83519ee12deb105ea349b0ae72e0086ce907c`) in the first line produced by the program to initialize the `iv`.
 * Use the first element of the last line (eg. `4000000`) to set `i` and `n`
