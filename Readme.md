@@ -22,7 +22,7 @@ Remember to add the `--release` flag otherwise performance are order of magnitud
 
 ### Running with less output
 ```
-$ ./target/release/hashchain 10
+$ ./target/release/hashchain 20
 Printing every 20000000
 0 d336fceb88eb8073495802ebfff62f812dfe269cf81312a2d604f58d6c4bbdd1    NaN Mhash/s
 20000000 99907160a1e11bc073e5ca6057fba268ba5360152207d1cc5bea0c1b1bf48d39  2.222 Mhash/s
@@ -37,7 +37,8 @@ $ nice -10 ./target/release/hashchain 1000 >chainXXX &
 
 ## Now what?
 
-Use [timelock](https://github.com/petertodd/timelock) from Todd_Taki to create a timelock by manually change the config file:
-Use the second element (eg. `ca8884437d8e80a4408ae87ec0a83519ee12deb105ea349b0ae72e0086ce907c`) in the first line produced by the program to initialize the `iv`.
-Use the first element of the last line (eg. `4000000`) to set `i` and `n`
-use the second element of the last line (eg. `229353d77959b733ec6d2fa974fc1330b65e902990dc0e85d40061f3ef1c3d68`) to set the `midstate`
+Use [timelock](https://github.com/petertodd/timelock) from Todd/Taki to create a timelock by manually change the config file:
+
+* Use the second element (eg. `ca8884437d8e80a4408ae87ec0a83519ee12deb105ea349b0ae72e0086ce907c`) in the first line produced by the program to initialize the `iv`.
+* Use the first element of the last line (eg. `4000000`) to set `i` and `n`
+* Use the second element of the last line (eg. `229353d77959b733ec6d2fa974fc1330b65e902990dc0e85d40061f3ef1c3d68`) to set the `midstate`
