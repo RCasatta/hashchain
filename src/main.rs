@@ -58,3 +58,19 @@ impl<'a> fmt::Display for HexSlice<'a> {
         Ok(())
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use crypto::digest::Digest;
+    use crypto::sha2::Sha256;
+    use ::HexSlice;
+
+    #[test]
+    pub fn test_hello_world_sha256() {
+        let mut sha = Sha256::new();
+        let input = "Hello world!".as_bytes();
+        sha.input(input);
+        assert_eq!(HexSlice::new(sha.result()), "c0535e4be2b79ffd93291305436bf889314e4a3faec05ecffcbb7df31ad9e51a");
+    }
+}
